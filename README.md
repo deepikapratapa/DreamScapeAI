@@ -30,14 +30,16 @@ dreamscape-ai/
 │        └── dreambank_clean.json    # Cleaned dream dataset after EDA
 │
 ├── notebooks/
-│   ├── exploratory_data_analysis.ipynb
-│                                   # Loads DreamBank, cleans text, plots stats
-│   ├── nlp_motif_extraction.ipynb
-│                                   # Transformer-based motif/emotion extraction
-│   ├── multimodal_generation.ipynb
-│                                   # Text→Image & Text→Audio generation
-│   └── visualization_summary.ipynb
-│                                   # Final plots, heatmaps, summaries
+│   ├── setup.ipynb      #(dataset load + plot + verification)
+│ 
+│   ├── exploratory_data_analysis.ipynb  # Loads DreamBank, cleans text, plots stats
+│                                   
+│   ├── nlp_motif_extraction.ipynb   # Transformer-based motif/emotion extraction
+│                                   
+│   ├── multimodal_generation.ipynb  # Text→Image & Text→Audio generation
+│                                   
+│   └── visualization_summary.ipynb   # Final plots, heatmaps, summaries
+│                                  
 │
 ├── src/
 │   ├── preprocess.py                # Helper functions for cleaning, tokenizing
