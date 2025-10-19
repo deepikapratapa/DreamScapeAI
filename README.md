@@ -53,7 +53,7 @@ dreamscape-ai/
 ├── docs/
 │   ├── diagram.png                  # Data→Model→Visualization architecture diagram
 │   ├── technical_blueprint.pdf      # 3–5-page design document (Canvas upload)
-│   └── ui_wireframe.png             # Optional static mockup of dashboard layout
+│   └── ui_wireframe.png             # static mockup of dashboard layout
 │
 ├── requirements.txt                 # Verified library list (for pip install)
 ├── environment.yml                  # Optional conda version of dependencies
@@ -107,7 +107,7 @@ python -m ipykernel install --user --name dreamscape --display-name "DreamScape 
 Open Jupyter and run:
 ```
 import pandas, datasets, matplotlib, seaborn, transformers
-print("✅ Environment ready!")
+print("Environment ready!")
 ```
 ▶️ How to Run
 	1.	Launch Jupyter Lab or Notebook:
@@ -150,14 +150,15 @@ Key Contributions
 	•	Integrates NLP, computer vision, and generative audio pipelines.
 	•	Serves dual audiences: researchers studying dream themes and individuals exploring self-reflection through art.
 
-📆 Implementation Timeline (Oct – Dec 2025)
+📆 **Implementation Timeline (Oct – Dec 2025)**
+
 | **Week** | **Focus** | **Expected Output** |
 |-----------|------------|---------------------|
-| **Oct 12 – Oct 26** | Data ingestion, cleaning, EDA | Cleaned DreamBank dataset + Deliverable 1 |
-| **Oct 27 – Nov 9** | NLP motif & emotion extraction | Transformer model outputs + embeddings |
-| **Nov 10 – Nov 23** | Multimodal generation | Image & audio synthesis modules |
-| **Nov 24 – Dec 7** | Visualization integration | Summary graphs + interpretability layers |
-| **Dec 8 – Dec 11** | Poster + presentation | Final demo-ready notebook |
+| **Oct 20 – 26** | Data cleaning, baseline setup | Working data loader and first notebook |
+| **Oct 27 – Nov 2** | Baseline training, simple UI prototype | Model trains end-to-end, early interface running |
+| **Nov 3 – 16** | Model tuning and interpretability | Improved accuracy and analytical insights |
+| **Nov 17 – 30** | Interface integration and refinement | Interactive and stable user interface |
+| **Dec 1 – 11** | Demo and final report | Completed project, poster and presentation ready |
 
 ⚖️ Responsible AI Reflection
 	•	Data Ethics: DreamBank dataset is public (CC BY 4.0) and anonymized.
@@ -178,4 +179,11 @@ DreamBank Annotated dataset © Gustave Cortal (2023) — CC BY 4.0.
 
 
 DreamScape AI doesn’t just analyze dreams — it brings them to life. 🌠
+
+
+## 🧑‍💻 Author
+
+**Deepika Sarala Pratapa**  
+MS Applied Data Science @ UF
+ [deepikapratapa27@gmail.com](mailto:dpratapa@ufl.edu)  
 
