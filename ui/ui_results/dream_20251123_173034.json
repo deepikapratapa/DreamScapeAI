@@ -1,0 +1,19 @@
+{
+  "timestamp": "20251123_173034",
+  "input_text": "I was walking through a museum that slowly turned into a forest. The paintings on the wall became windows, and through them I could see the night sky folding into itself like paper.",
+  "used_prompt": "I was walking through a museum that slowly turned into a forest. The paintings on the wall became windows, and through them I could see the night sky folding into itself like paper.",
+  "toxicity_score": 0.0010591469472274184,
+  "softened_prompt": false,
+  "image_model": "stabilityai/sd-turbo",
+  "audio_engine": "MusicGen/Transformers(facebook/musicgen-small)",
+  "paths": {
+    "image": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/ui/results/dream_20251123_173034.png",
+    "audio": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/ui/results/dream_20251123_173034.wav"
+  },
+  "clip_score": null,
+  "runtime_seconds": 43.89775837499474,
+  "extras": {
+    "moodboard": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/ui/results/dream_20251123_173133_moodboard.png",
+    "motif_graph": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/ui/results/dream_20251123_173134_motifs.png"
+  }
+}

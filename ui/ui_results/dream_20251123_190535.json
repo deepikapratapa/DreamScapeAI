@@ -1,0 +1,19 @@
+{
+  "timestamp": "20251123_190535",
+  "input_text": "I was standing in front of a tall mirror that didn\u2019t show my reflection.\nInstead, the surface rippled like water.\nWhen I reached out to touch it, a bright bird burst out from inside the mirror and flew upward into a burning orange sky.\nThe city around me felt abandoned, with empty streets and shadows moving on their own.\u201d",
+  "used_prompt": "I was standing in front of a tall mirror that didn\u2019t show my reflection.\nInstead, the surface rippled like water.\nWhen I reached out to touch it, a bright bird burst out from inside the mirror and flew upward into a burning orange sky.\nThe city around me felt abandoned, with empty streets and shadows moving on their own.\u201d",
+  "toxicity_score": 0.0012424209853634238,
+  "softened_prompt": false,
+  "image_model": "stabilityai/sd-turbo",
+  "audio_engine": "MusicGen/Transformers(facebook/musicgen-small)",
+  "paths": {
+    "image": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/ui/results/dream_20251123_190535.png",
+    "audio": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/ui/results/dream_20251123_190535.wav"
+  },
+  "clip_score": null,
+  "runtime_seconds": 51.3337840000022,
+  "extras": {
+    "moodboard": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/ui/results/dream_20251123_190647_moodboard.png",
+    "motif_graph": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/ui/results/dream_20251123_190647_motifs.png"
+  }
+}
