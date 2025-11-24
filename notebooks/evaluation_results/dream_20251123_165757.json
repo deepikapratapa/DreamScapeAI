@@ -1,0 +1,19 @@
+{
+  "timestamp": "20251123_165757",
+  "input_text": "My reflection in the mirror started breathing and turned into a bird flying through a burning city",
+  "used_prompt": "My reflection in the mirror started breathing and turned into a bird flying through a burning city",
+  "toxicity_score": 0.019295549020171165,
+  "softened_prompt": false,
+  "image_model": "stabilityai/sd-turbo",
+  "audio_engine": "MusicGen/Transformers(facebook/musicgen-small)",
+  "paths": {
+    "image": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/notebooks/results/dream_20251123_165757.png",
+    "audio": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/notebooks/results/dream_20251123_165757.wav"
+  },
+  "clip_score": 0.26193711161613464,
+  "runtime_seconds": 43.72717883400037,
+  "extras": {
+    "moodboard": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/notebooks/results/dream_20251123_165856_moodboard.png",
+    "motif_graph": "/Users/saturnine/Desktop/FALL 2025/AML2/project/DreamScapeAI/notebooks/results/dream_20251123_165857_motifs.png"
+  }
+}

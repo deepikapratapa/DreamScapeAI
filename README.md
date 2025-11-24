@@ -1,3 +1,9 @@
+---
+title: DreamScapeAI
+app_file: notebooks/multimodal_generation.ipynb
+sdk: gradio
+sdk_version: 5.49.1
+---
 # 🌌 DreamScape AI — From Blueprint to Prototype  
 ### Deliverable 2 · Implementation and Early Evaluation  
 **Author:** Deepika Sarala Pratapa  |  **Course:** EEE 6778 – Applied Machine Learning II (University of Florida)
