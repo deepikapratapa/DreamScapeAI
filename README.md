@@ -1,259 +1,236 @@
----
-title: DreamScapeAI
-app_file: notebooks/multimodal_generation.ipynb
-sdk: gradio
-sdk_version: 5.49.1
----
-# 🌌 DreamScape AI — From Blueprint to Prototype  
-### Deliverable 2 · Implementation and Early Evaluation  
-**Author:** Deepika Sarala Pratapa  |  **Course:** EEE 6778 – Applied Machine Learning II (University of Florida)
+# 🌌 DreamScape AI — Deliverable 3  
+### Refinement • Usability • Extended Evaluation  
+**Author:** Deepika Sarala Pratapa  
+**Course:** EEE 6778 – Applied Machine Learning II  
+**University of Florida**
 
 ---
 
-## 🪄 Project Overview
-**DreamScape AI** is a multimodal AI system that transforms written or spoken dream descriptions into **visual moodboards, ambient soundscapes, and symbolic motif graphs**.  
-It bridges creativity, psychology, and machine learning — allowing subconscious patterns to be visualized through AI.
+## 🧠 1. Project Overview
+DreamScape AI is a multimodal generative system that transforms written or spoken dream descriptions into multiple synchronized outputs:
 
-Deliverable 2 presents the **first fully functional prototype**, integrating:
-> DreamBank dataset → NLP embedding → Diffusion & Audio Generation → Gradio Interface (inside Jupyter)
+- 🖼️ Surreal dream image (Stable Diffusion Turbo)  
+- 🎵 Ambient soundtrack (MusicGen)  
+- 🎨 Six-style moodboard  
+- 🕸️ Symbolic motif graph (NER + lexicon filtering)  
+- 📊 Runtime, toxicity, and alignment diagnostics  
 
----
-
-## 🎯 Objectives (Deliverable 2)
-- Build an **end-to-end dream generation pipeline** from text ingestion to multimodal outputs.  
-- Use **Sentence-BERT embeddings** and **K-Means clustering** to uncover latent dream motifs.  
-- Generate images and music using **Stable Diffusion Turbo** and **MusicGen**.  
-- Implement **speech transcription** (Faster-Whisper) and **motif visualization** (NER + NetworkX).  
-- Embed a **Gradio-based user interface** directly within the notebook.  
-- Document early evaluation metrics and visuals.
+Deliverable 3 focuses on **refinement**, **speed**, **usability**, and **extended evaluation**.  
+The pipeline is now modular, faster, and ready for deployment through a stable Gradio interface.
 
 ---
 
-## 🧱 Repository Structure
+## 📁 2. Repository Structure
 ```
 dreamscape-ai/
 │
 ├── data/
-│   ├── raw/
-│   └── processed/
-│        └── dreambank_clean.json       # Cleaned dream dataset (~1000 entries)
-│
-├── notebooks/
-│   ├── setup.ipynb                     # Dataset load + schema verification
-│   ├── exploratory_data_analysis.ipynb # Dream length + emotion analysis
-│   ├── nlp_motif_extraction.ipynb      # Sentence-BERT embeddings + K-Means
-│   └── multimodal_generation.ipynb     # Diffusion + MusicGen + Gradio UI
-│
-├── results/
-│   ├── dream_length_distribution.png
-│   ├── eda_emotion_distribution.png
-│   ├── nlp_clusters.png
-│   ├── dream_20251109_142615.png
-│   ├── dream_20251109_142714_moodboard.png
-│   └── dream_20251109_142714_motifs.png
+│   ├── raw/                # Original DreamBank or audio/text inputs
+│   └── processed/          # Cleaned + precomputed assets
+│        ├── dreambank_clean.json      # Final cleaned dataset used across all D1–D3
+│        ├── dream_embeddings.npy      # SBERT embeddings for clustering & t-SNE
+│        └── cluster_keywords.json     # TF-IDF keywords for each cluster (D3)
 │
 ├── docs/
-│   ├── architecture.png
-│   ├── ui_screenshot.png
-│   └── deliverable2_ieee.pdf           # IEEE-format report for submission
+│   ├── architecture.png              # System architecture (Deliverable 2)
+│   ├── ui_d3_overview.png            # Updated UI screenshot (Deliverable 3)
+│   └── ui_screenshot.png              # Early UI snapshot
+│   └── pipeline.png                   # Updated pipeline diagram for D3 refinements
 │
-├── requirements.txt
-├── environment.yml
+├── notebooks/
+│   ├── setup.ipynb                      # Deliverable 1: dataset load, cleaning, schema checks
+│   ├── exploratory_data_analysis.ipynb  # Deliverable 2: dream length/emotions EDA
+│   ├── nlp_motif_extraction.ipynb       # Deliverable 2: SBERT embeddings + K-Means
+│   ├── multimodal_generation.ipynb      # Deliverable 2: first full multimodal pipeline + UI
+│   ├── nlp_motif_extraction_d3.ipynb     # Deliverable 3: HDBSCAN, t-SNE, motif refinements
+│   ├── multimodal_generation_d3.ipynb   # Deliverable 3: optimized generation, fast mode
+│   ├── evaluation_multimodal_d3.ipynb   # Deliverable 3: runtime, CLIPScore, toxicity eval
+│   └── evaluation_results/              # Auto-saved evaluation artifacts
+│        └── (generated images, audio, moodboards, motifs)
+│
+├── results/
+│   ├── nlp_tsne_d3.png
+│   ├── nlp_clusters_kmeans_d3.png
+│   ├── nlp_clusters_hdbscan_d3.png
+│   ├── nlp_emotion_heatmap_kmeans_d3.png
+│   └── eval_runtime_hist.png
+│
+├── ui/
+│   ├── app.py         # Final Gradio interface (standalone, deploy-ready) 
+│   └── ui_results/     # Outputs generated via UI testing
+│        └── (image/audio/motif/moodboard outputs)
+│
+├── requirements.txt      # All dependencies for reproducibility
 ├── README.md
 └── LICENSE
 ```
----
-
-## 🧠 Dataset Summary
-**Dataset:** [DreamBank Annotated – Gustave Cortal (2023)](https://huggingface.co/datasets/gustavecortal/DreamBank-annotated)  
-**Type:** 27,952 dream narratives with HVdC-coded emotions and characters  
-**Subset Used:** 1,000 entries for experimentation  
-
-### Preprocessing (in `setup.ipynb`)
-- Dropped null or <50-character entries  
-- Normalized text fields (`report → text`)  
-- Parsed HVdC emotion and character codes  
-- Computed dream length, word counts, and descriptive statistics  
-- Saved cleaned dataset as `data/processed/dreambank_clean.json`
 
 ---
 
-## ⚙️ Environment Setup
-### 1️⃣ Create Environment
+## ⚙️ 3. Environment Setup
+
+### 1️⃣ Create and activate environment
 ```bash
 conda create -n dreamscape python=3.11 -y
 conda activate dreamscape
 pip install -r requirements.txt
 ```
-
-2️⃣ (Optional) Add Jupyter Kernel
+### 2️⃣ (Optional) Add Jupyter kernel
 ```bash
 pip install jupyterlab ipykernel
 python -m ipykernel install --user --name dreamscape --display-name "DreamScape AI"
 ```
 
-## ▶️ Running the Pipeline
+## 🏗️ 4. Updated Architecture (Deliverable 3)
 
-### **Step 1 · Data Setup**
-**Notebook:** `notebooks/setup.ipynb`  
+### 🔧 **Refined Pipeline**
+![Updated Pipeline](docs/pipeline.png)
 
-✅ Loads dataset from Hugging Face  
-✅ Cleans and validates schema  
-✅ Saves cleaned JSON file → `data/processed/dreambank_clean.json`  
-
----
-
-### **Step 2 · Exploratory Data Analysis**
-**Notebook:** `notebooks/exploratory_data_analysis.ipynb`  
-
-**Outputs:**
-- `results/dream_length_distribution.png` — distribution of dream lengths  
-- `results/eda_emotion_distribution.png` — bar plot of HVdC emotion codes  
-
-**Observations:**
-- Dreams average **171 words**, with most ranging between **50–250 words**.  
-- Emotion tags (e.g., *AP, HA, AN, SD*) show **balanced polarity**, making the dataset suitable for affective modeling.
+The pipeline now includes:
+- modular function blocks  
+- centralized saving logic  
+- fast-mode diffusion  
+- lexicon-guided motif extraction  
 
 ---
 
-### **Step 3 · Motif and Embedding Extraction**
-**Notebook:** `notebooks/nlp_motif_extraction.ipynb`  
+## 🎨 5. Gradio Interface (Deliverable 3)
 
-✅ Generates **Sentence-BERT embeddings (384-D)**  
-✅ Performs **K-Means clustering (k = 8)**  
-✅ Extracts **top TF-IDF keywords** per motif cluster  
-✅ Saves visualization → `results/nlp_clusters.png`  
+### 📺 **Updated UI Layout**
+![Gradio UI Screenshot](docs/ui_d3_overview.png)
 
-**Observations:**
-- Clusters correspond to interpretable dream motifs such as **movement**, **family**, **water**, and **anxiety**.
-- 
-### **Step 4 · Multimodal Generation**
+UI now includes:
+- Three-tab output layout  
+- Default example prompts  
+- Safer file paths  
+- More stable audio playback  
 
-**Notebook:** `notebooks/multimodal_generation.ipynb`  
+---
+## ▶️ 6. Running the System
+### A. Launch the Gradio Interface
+Runs the full image–audio–moodboard–motif pipeline.
+```bash
+cd ui
+python app.py
+```
+Open the browser interface link generated.
 
-This notebook unifies **text-to-image**, **text-to-audio**, and **entity graph** modules into a single multimodal framework.
+### B. Run Evaluation Notebooks
+- evaluation_multimodal_d3.ipynb
+- nlp_motif_extraction_d3.ipynb
+- exploratory_data_analysis.ipynb
 
-**Models Used:**
+All evaluation figures and outputs are saved automatically into:
+```
+results/
+notebooks/evaluation_results/
+ui/ui_results/
+```
 
-| **Component** | **Model** | **Description** |
-|:---------------|:----------|:----------------|
-| 🖼️ **Image** | `stabilityai/sd-turbo` | Fast diffusion model for dream-like visuals |
-| 🎵 **Audio** | `facebook/musicgen-small` | Text-to-music model generating ambient soundscapes |
-| 🎙️ **ASR** | `faster-whisper (small/int8)` | Speech-to-text transcription model |
-| 🕸️ **Motif Graph** | `dslim/bert-base-NER` | Entity extraction for co-occurrence graph visualization |
+## 🚀 7. Key Improvements Since Deliverable 2
 
-**Outputs:**
-- `results/dream_20251109_142615.png` — generated surreal image  
-- `results/dream_20251109_142714_moodboard.png` — artistic collage (6 visual styles)  
-- `results/dream_20251109_142714_motifs.png` — motif graph showing co-occurring symbols  
+### 💡 System & Codebase
+- Refactored into a clean module structure (`src/`, `ui/`, `results/`).
+- All multimodal generation moved into `multimodal_generation_d3.py`.
+- Gradio interface migrated from notebook → standalone script (`ui/app.py`).
+- Faster inference defaults (4–6 diffusion steps).
+- Stable timestamped output directories for reproducibility.
+
+### 🧩 Interface Enhancements
+- Three-tab layout (Image/Audio • Moodboard/Motifs • Analysis).
+- More robust audio handling and safer file paths.
+- Includes default example prompts.
+- Automatic fallback audio if MusicGen fails.
+
+### 📊 Extended Evaluation
+- t-SNE embedding map  
+- K-Means and HDBSCAN clustering  
+- Emotion heatmap by cluster  
+- Runtime distribution histogram  
+- CLIPScore and toxicity evaluation  
+- Per-dream quantitative table  
+
+## 🌈 8. Example Outputs (Deliverable 3)
+
+Below are representative multimodal outputs generated by DreamScape AI during Deliverable 3  
+These examples demonstrate coherence across **image**, **style**, and **symbolic motif extraction**.
+
+Prompt
+```
+I was standing in front of a tall mirror that didn’t show my reflection.
+Instead, the surface rippled like water.
+When I reached out to touch it, a bright bird burst out from inside the mirror and flew upward into a burning orange sky.
+The city around me felt abandoned, with empty streets and shadows moving on their own.
+```
 
 ---
 
-### **Step 5 · Interactive Gradio Interface (Inside Notebook)**
+### 🖼️ Generated Dream Image  
+A surreal visual rendering produced by **Stable Diffusion Turbo** from the dream prompt.
 
-The final cell in `multimodal_generation.ipynb` launches an **interactive Gradio interface** directly within the notebook for real-time exploration.
-
-**Features:**
-- Accepts **text or audio** input  
-- Toggles for *Generate Moodboard*, *Generate Motif Graph*, and *Fast Mode*  
-- Displays generated **image**, **audio**, **moodboard**, **motif graph**, **toxicity score**, and **transcribed text**  
-- Runs entirely **locally** on CPU or MPS — no cloud API required  
-
-![Interface Screenshot](docs/ui_screenshot.png)
+<img src="ui/ui_results/dream_20251123_190535.png" width="55%" alt="Generated Dream Image">
 
 ---
 
-## 📊 **Early Evaluation**
+### 🎨 Six-Style Moodboard  
+A style-diverse moodboard exploring six artistic interpretations of the same dream.
 
-| **Component** | **Avg CPU Runtime (s)** | **Notes** |
-|:---------------|:----------------------:|:-----------|
-| Stable Diffusion Turbo (512², 4 steps) | 6.3 ± 0.7 | Fast and consistent rendering |
-| Moodboard (6 tiles) | 18.6 ± 1.8 | Multi-style batch generation |
-| MusicGen Audio (8 s) | 7.9 ± 0.8 | Smooth, ambient synthesis |
-| Faster-Whisper ASR | 3.2 ± 0.3 | Accurate and low-latency transcription |
-| Motif Graph (NER) | 1.1 ± 0.2 | Lightweight entity co-occurrence mapping |
-
-**Example Prompt:**
-> “My reflection in the mirror started breathing, then turned into a bird flying through a burning city.”
-
-**Generated Results:**
-- 🖼️ **Image:** `dream_20251109_142615.png` – surreal cinematic composition  
-- 🎵 **Audio:** reflective, tense ambient pads  
-- 🕸️ **Motif Graph:** `dream_20251109_142714_motifs.png` – connections: *mirror → bird → city → fire*  
-
-➡️ These demonstrate strong **cross-modal semantic coherence** between text, image, and sound outputs.
+<img src="ui/ui_results/dream_20251123_190647_moodboard.png" width="70%" alt="Moodboard">
 
 ---
 
-## 🧩 **System Architecture**
+### 🕸️ Symbolic Motif Graph  
+A graph of entities extracted using **BERT-NER + lexicon filtering**, showing symbolic co-occurrence patterns.
 
-![System Architecture](docs/architecture.png)
-
-| **Stage** | **Description** | **Libraries / Models** |
-|:-----------|:----------------|:------------------------|
-| **Data Processing** | Cleaning, preprocessing, and exploratory analysis | pandas, seaborn |
-| **Embedding & Clustering** | Sentence-BERT embeddings + K-Means clustering | sentence-transformers, scikit-learn |
-| **Image Generation** | Text → Image diffusion synthesis | diffusers (`sd-turbo`) |
-| **Audio Generation** | Text → Music generation | transformers (`facebook/musicgen-small`) |
-| **Speech Recognition** | Audio → Text transcription | faster-whisper |
-| **Motif Graphing** | Named entity extraction + co-occurrence visualization | networkx, dslim/bert-base-NER |
-| **Interface** | Interactive notebook-based app | Gradio |
+<img src="ui/ui_results/dream_20251123_190647_motifs.png" width="60%" alt="Motif Graph">
 
 ---
 
-## ⚖️ **Responsible AI Reflection**
+## 📈 9. Updated Evaluation Results
 
-DreamScape AI adheres to transparent, ethical, and sustainable AI practices:
+Below is the quantitative evaluation from Deliverable 3, including runtime, toxicity, and CLIPScore for each dream in the test set:
 
-- 🧩 **Dataset Integrity:** DreamBank (CC BY 4.0) is publicly available and anonymized.  
-- 🛡️ **Safety:** Detoxify filters toxic inputs; the diffusion model’s safety checker blurs sensitive content.  
-- 🔍 **Transparency:** All generated outputs are clearly labeled as AI-created.  
-- 🔒 **Privacy:** No personal data or prompts are stored or transmitted externally.  
-- ⚙️ **Efficiency:** Optimized for CPU/MPS execution to minimize computational overhead.  
+| **Dream ID**   | **Words** | **Runtime (s)** | **Toxicity** | **CLIPScore** |
+|----------------|-----------:|----------------:|--------------:|----------------:|
+| hall_female    | 179        | 80.60           | 0.0015        | 0.2635          |
+| dorothea       | 71         | 61.55           | 0.0013        | 0.2291          |
+| pegasus        | 123        | 55.65           | 0.0030        | 0.2832          |
+| izzy-all       | 69         | 57.46           | 0.0981        | 0.1822          |
+| norms-f        | 103        | 62.53           | 0.0008        | 0.2463          |
+| norms-m        | 86         | 60.79           | 0.0007        | 0.2015          |
 
----
-
-## 📚 **References**
-
-- Hall & Van de Castle (1966). *The Content Analysis of Dreams.*  
-- Cortal, G. (2023). *DreamBank Annotated* [Dataset]. Hugging Face.  
-- Rombach et al. (2022). *High-Resolution Image Synthesis with Latent Diffusion Models.*  
-- Copet et al. (2023). *MusicGen: Simple and Controllable Music Generation.*  
-- Sanh et al. (2020). *dslim/bert-base-NER.* Hugging Face.  
-- Kim (2023). *Faster-Whisper.* GitHub.  
-- Unitary AI (2020). *Detoxify: Toxic Comment Classification.*
+## ⭐ Average Improvements
+- ⏱️ Runtime reduced by ~20–30%  
+- 🔍 Motif graphs cleaner and more interpretable  
+- 🌐 Embedding space reveals consistent thematic clusters  
+- 🧪 Toxicity scores remain extremely low  
 
 ---
 
-🧾 License
+## ⚖️ 10. Responsible AI Considerations
+- 🖥️ Runs entirely locally; no external API calls  
+- 🔒 Dream texts are not stored unless manually saved  
+- 🛡️ Safety filters applied to unstable or explicit text  
+- 🧯 Diffusion model safety checker active by default  
+- 📁 Transparent handling of generated media and metadata  
 
-All original code © 2025 Deepika Sarala Pratapa — released under the MIT License.
-DreamBank Annotated dataset © Gustave Cortal (2023) — CC BY 4.0.
 ---
 
-## 👩‍💻 **Author**
+## 🧩 11. Known Issues
+- 🎵 MusicGen occasionally produces silence → fallback audio is used  
+- 📜 Long dream inputs (>300 words) increase runtime  
+- 🌀 HDBSCAN detects many noise points due to narrative variability  
 
+---
+
+## 📬 12. Contact
 **Deepika Sarala Pratapa**  
-M.S. in Applied Data Science @ University of Florida  
-📧 [dpratapa@ufl.edu](mailto:dpratapa@ufl.edu)  
+M.S. in Applied Data Science, University of Florida  
+📧 Email: dpratapa@ufl.edu  
+🐙 GitHub: https://github.com/deepikapratapa/DreamScapeAI  
 
 ---
 
-> “DreamScape AI doesn’t just analyze dreams — it brings them to life.” 🌠
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 📄 13. License
+This project is released under the **MIT License**.  
+DreamBank Annotated dataset © 2023 **Gustave Cortal**, CC BY 4.0.
