@@ -1,0 +1,19 @@
+{
+  "timestamp": "20251127_045647",
+  "input_text": "In an auditorium getting seated. An earthquake that would cause much damage was announced to be on its way. I wish and said that I hope it would hurry and get it over. Trying to get to sleep again and pull up covers. I feel a door by my bed that shouldn't be there. Open eyes: bed and door still in the right place; perhaps it's that screen by the bed.",
+  "used_prompt": "In an auditorium getting seated. An earthquake that would cause much damage was announced to be on its way. I wish and said that I hope it would hurry and get it over. Trying to get to sleep again and pull up covers. I feel a door by my bed that shouldn't be there. Open eyes: bed and door still in the right place; perhaps it's that screen by the bed.",
+  "toxicity_score": 0.0013201450929045677,
+  "softened_prompt": false,
+  "image_model": "stabilityai/sd-turbo",
+  "audio_engine": "MusicGen/Transformers(facebook/musicgen-small)",
+  "paths": {
+    "image": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/dorothea_20251127_045647.png",
+    "audio": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/dorothea_20251127_045647.wav"
+  },
+  "clip_score": 0.22907845675945282,
+  "runtime_seconds": 41.900291749989265,
+  "extras": {
+    "moodboard": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/dorothea_20251127_045742_moodboard.png",
+    "motif_graph": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/dorothea_20251127_045742_motifs.png"
+  }
+}

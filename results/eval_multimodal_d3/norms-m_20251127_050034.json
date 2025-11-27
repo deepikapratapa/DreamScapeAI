@@ -1,0 +1,19 @@
+{
+  "timestamp": "20251127_050034",
+  "input_text": "I attended the Dr. I.Q. quiz show which recently appeared in Cleveland and which is on the radio on Wed. at 8 p.m. I remained tense as I waited hopefully to be a contestant. In the meantime, a queer thing happened which never takes place on the quiz show. The quiz master was replaced by his wife as quiz master after half of the program was over. I was finally called to answer a question. I can't remember what the question was or how I answered.",
+  "used_prompt": "I attended the Dr. I.Q. quiz show which recently appeared in Cleveland and which is on the radio on Wed. at 8 p.m. I remained tense as I waited hopefully to be a contestant. In the meantime, a queer thing happened which never takes place on the quiz show. The quiz master was replaced by his wife as quiz master after half of the program was over. I was finally called to answer a question. I can't remember what the question was or how I answered.",
+  "toxicity_score": 0.0006545038777403533,
+  "softened_prompt": false,
+  "image_model": "stabilityai/sd-turbo",
+  "audio_engine": "MusicGen/Transformers(facebook/musicgen-small)",
+  "paths": {
+    "image": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/norms-m_20251127_050034.png",
+    "audio": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/norms-m_20251127_050034.wav"
+  },
+  "clip_score": 0.2014945149421692,
+  "runtime_seconds": 40.996081042001606,
+  "extras": {
+    "moodboard": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/norms-m_20251127_050130_moodboard.png",
+    "motif_graph": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/norms-m_20251127_050130_motifs.png"
+  }
+}

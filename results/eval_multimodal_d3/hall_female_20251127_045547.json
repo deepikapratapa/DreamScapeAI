@@ -1,0 +1,19 @@
+{
+  "timestamp": "20251127_045547",
+  "input_text": "There were two girls and myself sitting around a table in H-- Hall. We were watching a fellow and girl come down the steps. Each of us knew the fellow and one by one we told each other of our experiences with him. Each story was similar to the other. There was a fourth vacant chair and we expected the girl he was with to fill it. <br /><br /><TABLE border=\"1\" cellspacing=\"0\" cellpadding=\"3\"><TR valign=\"top\"><TD><I>Interpretation</I><br /> I went all summer with the fellow in the dream. There are two other girls I know who have gone with him in the past and have had the same outcome - when he feels both are getting too serious, he stops dating the girl because he can see himself with a girlfriend but not a wife. Now he is going with a fourth girl who probably we all unconsciously hope or expect to end up the same way as we did.</TD> <TD><I>Answers to questions</I><br /> 2. Complete relaxation. Fun over conversations.<br />3. Actual participant.<br />4. Pleasant.<br />5. H-- Hall<br />6. No.<br />7. No.</TD></TR></TABLE>",
+  "used_prompt": "There were two girls and myself sitting around a table in H-- Hall. We were watching a fellow and girl come down the steps. Each of us knew the fellow and one by one we told each other of our experiences with him. Each story was similar to the other. There was a fourth vacant chair and we expected the girl he was with to fill it. <br /><br /><TABLE border=\"1\" cellspacing=\"0\" cellpadding=\"3\"><TR valign=\"top\"><TD><I>Interpretation</I><br /> I went all summer with the fellow in the dream. There are two other girls I know who have gone with him in the past and have had the same outcome - when he feels both are getting too serious, he stops dating the girl because he can see himself with a girlfriend but not a wife. Now he is going with a fourth girl who probably we all unconsciously hope or expect to end up the same way as we did.</TD> <TD><I>Answers to questions</I><br /> 2. Complete relaxation. Fun over conversations.<br />3. Actual participant.<br />4. Pleasant.<br />5. H-- Hall<br />6. No.<br />7. No.</TD></TR></TABLE>",
+  "toxicity_score": 0.0014760427875444293,
+  "softened_prompt": false,
+  "image_model": "stabilityai/sd-turbo",
+  "audio_engine": "MusicGen/Transformers(facebook/musicgen-small)",
+  "paths": {
+    "image": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/hall_female_20251127_045547.png",
+    "audio": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/hall_female_20251127_045547.wav"
+  },
+  "clip_score": 0.2634793519973755,
+  "runtime_seconds": 42.6792168749962,
+  "extras": {
+    "moodboard": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/hall_female_20251127_045644_moodboard.png",
+    "motif_graph": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/hall_female_20251127_045645_motifs.png"
+  }
+}

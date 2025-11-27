@@ -1,0 +1,19 @@
+{
+  "timestamp": "20251127_045742",
+  "input_text": "I was in the wilderness with friends. A fellow's son was way out in the field by himself. A car was chasing him. He yelled to him to run and keep away from him. Three of us started to run to his aid. We picked up anything we came across. One of us picked up a club. I picked up a shovel and so did the other fellow. When we got near the bear, he was close to the boy, but we got there on time. We started to hit the bear on the head with our club and shovels till we killed the bear. We had about seven bears that we killed that way. On the way back we were eating prunes.",
+  "used_prompt": "I was in the wilderness with friends. A fellow's son was way out in the field by himself. A car was chasing him. He yelled to him to run and keep away from him. Three of us started to run to his aid. We picked up anything we came across. One of us picked up a club. I picked up a shovel and so did the other fellow. When we got near the bear, he was close to the boy, but we got there on time. We started to hit the bear on the head with our club and shovels till we killed the bear. We had about seven bears that we killed that way. On the way back we were eating prunes.",
+  "toxicity_score": 0.003007990075275302,
+  "softened_prompt": false,
+  "image_model": "stabilityai/sd-turbo",
+  "audio_engine": "MusicGen/Transformers(facebook/musicgen-small)",
+  "paths": {
+    "image": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/pegasus_20251127_045742.png",
+    "audio": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/pegasus_20251127_045742.wav"
+  },
+  "clip_score": 0.28319209814071655,
+  "runtime_seconds": 40.62660179100931,
+  "extras": {
+    "moodboard": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/pegasus_20251127_045838_moodboard.png",
+    "motif_graph": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/pegasus_20251127_045838_motifs.png"
+  }
+}

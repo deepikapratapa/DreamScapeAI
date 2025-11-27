@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+notebooks/.gradio/
+
+# Gradio UI temp outputs
+ui/.ipynb_checkpoints/
+ui/results/
+
+# Misc
+results/.DS_Store

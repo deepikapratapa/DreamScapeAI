@@ -1,0 +1,19 @@
+{
+  "timestamp": "20251127_045936",
+  "input_text": "I was at the home of a friend that lives in the country. I was walking toward the barn. At the door of the barn sat a woman about thirty years of age. I do not know this woman--her face wasn't clear. I did, however, seem to know her in the dream. She was holding a baby. I called the baby by my four-year-old cousin's name (my cousin is a little boy). The baby, however, was much younger than my cousin--perhaps not even 1 year old. I hugged the baby several times. A good friend of mine was with me in the dream.",
+  "used_prompt": "I was at the home of a friend that lives in the country. I was walking toward the barn. At the door of the barn sat a woman about thirty years of age. I do not know this woman--her face wasn't clear. I did, however, seem to know her in the dream. She was holding a baby. I called the baby by my four-year-old cousin's name (my cousin is a little boy). The baby, however, was much younger than my cousin--perhaps not even 1 year old. I hugged the baby several times. A good friend of mine was with me in the dream.",
+  "toxicity_score": 0.0007578000659123063,
+  "softened_prompt": false,
+  "image_model": "stabilityai/sd-turbo",
+  "audio_engine": "MusicGen/Transformers(facebook/musicgen-small)",
+  "paths": {
+    "image": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/norms-f_20251127_045936.png",
+    "audio": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/norms-f_20251127_045936.wav"
+  },
+  "clip_score": 0.24634796380996704,
+  "runtime_seconds": 42.55816149999737,
+  "extras": {
+    "moodboard": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/norms-f_20251127_050032_moodboard.png",
+    "motif_graph": "/Users/saturnine/Desktop/DreamScapeAI/results/eval_multimodal_d3/norms-f_20251127_050033_motifs.png"
+  }
+}
