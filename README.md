@@ -4,6 +4,10 @@
 **Course:** EEE 6778 – Applied Machine Learning II  
 **University of Florida**
 
+## 🚀 Live Demo
+
+Hugging Face Space: https://huggingface.co/spaces/dpratapa/DreamScapeAI
+
 ---
 
 ## 🧠 1. Project Overview
